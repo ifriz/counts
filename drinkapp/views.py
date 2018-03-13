@@ -11,9 +11,9 @@ def add_drink():
         user = User.get_user_by_name(request.json['user'])
         if user is not None:
             user_id = user.id
-        else:
-            user = User(username=request.json['user'])
-            db.session.add(user)
+        # else:
+        #     user = User(username=request.json['user'])
+        #     db.session.add(user)
     drink = Drink(channel=request.json['channel'], date=datetime.today(), description="", user_id=user_id)
     db.session.add(drink)
     db.session.commit()
