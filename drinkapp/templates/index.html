@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>all counts</h1>
+
+    <table>
+        <tr>
+            <th>name</th>
+            <th>count</th>
+        </tr>
+        {% for count in counts %}
+        <tr>
+            <td>{{ count.channel }}</td>
+            <td>{{ count.counts }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+{% endblock %}

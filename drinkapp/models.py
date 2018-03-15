@@ -1,6 +1,8 @@
 from datetime import datetime
+from sqlalchemy import func, desc
 
 from drinkapp import db
+
 
 
 class Drink(db.Model):
@@ -17,6 +19,11 @@ class Drink(db.Model):
     @staticmethod
     def get_drink(name):
         return Drink.query.filter(Drink.channel == name)
+
+    @staticmethod
+    def top(num):
+        return db.session.query(Drink.channel, func.count(Drink.channel).label('counts')).\
+            group_by(Drink.channel).order_by(desc(func.count(Drink.channel))).limit(num)
 
     def __repr__(self):
         return "Drink '{}': '{}'>".format(self.name, self.channel)

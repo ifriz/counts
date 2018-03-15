@@ -30,10 +30,10 @@ def get_channel(channel_name):
 @app.route('/drink/<string:channel_name>', methods=['GET'])
 def show_channel_results(channel_name):
     return render_template('results.html', title="results for {0}".format(channel_name),
-                           name = channel_name,
+                           name=channel_name,
                            count=Drink.get_count(channel_name))
 
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return render_template('index.html', title="Counts", counts=Drink.top(10))
