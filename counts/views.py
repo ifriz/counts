@@ -1,5 +1,5 @@
 from flask import request, render_template, jsonify, json
-from drinkapp import app, db
+from counts import app, db
 from .models import User, Drink
 from datetime import datetime
 
@@ -20,6 +20,7 @@ def add_drink():
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
 
+
 @app.route('/api/drink/<string:channel_name>', methods=['GET'])
 def get_channel(channel_name):
     drinkresult = Drink.get_drink(channel_name)
@@ -32,6 +33,13 @@ def show_channel_results(channel_name):
     return render_template('results.html', title="results for {0}".format(channel_name),
                            name=channel_name,
                            count=Drink.get_count(channel_name))
+
+
+@app.route('/user/<string:user_name>', methods=['GET'])
+def show_user_results(user_name):
+    return render_template('results.html', title=f'results for {user_name}',
+                           name=user_name,
+                           count=User.get_user_count(user_name))
 
 
 @app.route("/")
