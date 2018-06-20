@@ -47,7 +47,9 @@ class User(db.Model):
 
     @staticmethod
     def get_user_count(name):
-        return User.query.join(User.drinkcounts, aliased=True).filter_by(username=name)
+        queryobj = db.session.query(User.username, Drink.channel, func.count(Drink.channel)).join(
+            User.drinkcounts).filter(User.username == name).group_by(User.username, Drink.channel).all()
+        return queryobj
 
     def __repr__(self):
         return '<User %r' % self.username

@@ -6,6 +6,10 @@ from datetime import datetime
 
 @app.route('/api/drink', methods=['POST'])
 def add_drink():
+    """
+    Store a count record
+    :return: JSON success
+    """
     user_id = 0
     if 'user' in request.json.keys():
         user = User.get_user_by_name(request.json['user'])
@@ -20,9 +24,13 @@ def add_drink():
     return json.dumps({'success': True}), 200, {'ContentType': 'application/json'}
 
 
-
 @app.route('/api/drink/<string:channel_name>', methods=['GET'])
 def get_channel(channel_name):
+    """
+    retrieve the number of counts for a specific channel
+    :param channel_name:
+    :return:
+    """
     drinkresult = Drink.get_drink(channel_name)
     # return jsonify(drink)
     return jsonify(json_list=[i.serialize for i in drinkresult.all()])
