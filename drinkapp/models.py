@@ -3,8 +3,6 @@ from sqlalchemy import func, desc
 
 from drinkapp import db
 
-
-
 class Drink(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     channel = db.Column(db.Text, nullable=False)
@@ -44,7 +42,7 @@ class User(db.Model):
 
     @staticmethod
     def get_user_by_name(name):
-        User.query.filter_by(username=name).first()
+        return User.query.filter_by(username=name).first()
 
     def __repr__(self):
         return '<User %r' % self.username

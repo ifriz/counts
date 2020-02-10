@@ -1,6 +1,6 @@
-# from waitress import serve
-# from . import app
-#
-# if __name__ == '__main__':
-#     serve(app, listen="*.8080")
+from __init__ import app
+if __name__ == '__main__':
+    print("Hello from {0}".format(__name__))
+    # app.run()
+
 
