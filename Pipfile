@@ -4,16 +4,16 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-click = "==6.7"
-itsdangerous = "==0.24"
-waitress = "==1.1.0"
-Flask = "==0.12.2"
-Flask-Script = "==2.0.6"
-Flask-SQLAlchemy = "==2.3.2"
-"Jinja2" = "==2.10"
-MarkupSafe = "==1.0"
-SQLAlchemy = "==1.2.8"
-Werkzeug = "==0.14.1"
+click = "*"
+itsdangerus = "*"
+waitress = "*"
+Flask = "*"
+Flask-Script = "*"
+Flask-SQLAlchemy = "*"
+Jinja2 = "*"
+MarkupSafe = "*"
+SQLAlchemy = "*"
+Werkzeug = "*"
 
 [dev-packages]
 

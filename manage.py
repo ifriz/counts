@@ -1,5 +1,5 @@
-from drinkapp import app, db
-from drinkapp.models import User
+from counts import app, db
+from counts.models import User
 from flask_script import Manager, prompt_bool
 
 manager = Manager(app)
