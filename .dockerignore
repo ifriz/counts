@@ -1,0 +1,27 @@
+# app specifics
+client/
+drinkapp/
+node_modules/
+
+# python ignore
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.Python
+env
+venv
+.venv
+.vscode
+.idea
+pip-log.txt
+pip-delete-this-directory.txt
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*,cover
+*.log
+.git
