@@ -4,18 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-click = "*"
-itsdangerus = "*"
+flask = "*"
 waitress = "*"
-Flask = "*"
-Flask-Script = "*"
-Flask-SQLAlchemy = "*"
-Jinja2 = "*"
-MarkupSafe = "*"
-SQLAlchemy = "*"
-Werkzeug = "*"
+sqlalchemy = "*"
+flask-script = "*"
 
 [dev-packages]
+pylint = "*"
 
 [requires]
-python_version = "3.6"
+python_version = "3.9"
