@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <form method="POST">
+        {{ form.csrf_token }}
+        <div>
+            {{ form.channel.label }} {{ form.channel(size=20) }}
+        </div>
+        <div>
+            {{ form.description.label}} 
+            <div>
+                {{ form.description(cols="35", rows="10") }}
+            </div>
+        </div>
+        
+        <input type="submit" value="Go">
+    </form>
+
+{% endblock %}

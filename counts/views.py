@@ -1,8 +1,22 @@
-from flask import request, render_template, jsonify, json
+from flask import request, redirect, url_for, render_template, jsonify, json
 from counts import app, db
 from .models import User, Drink
+from .forms import CountsForm
 from datetime import datetime
 
+
+@app.route('/count', methods=['GET','POST'])
+def add_form():
+    """
+    Display the add form
+    """
+    form = CountsForm()
+    if form.validate_on_submit():
+        user_id = 0
+        add_count_from_form(form.channel.data, form.description.data, user_id)
+        return redirect(url_for('index'))
+    return render_template('form.html', form=form)
+        
 
 @app.route('/api/drink', methods=['POST'])
 def add_drink():
@@ -51,5 +65,11 @@ def show_user_results(user_name):
 
 
 @app.route("/")
-def hello():
+def index():
     return render_template('index.html', title="Counts", counts=Drink.top(10))
+
+
+def add_count_from_form(channel:str, description:str, user_id:int) -> None:
+    drink = Drink(channel=channel, date=datetime.today(), description=description, user_id=user_id)
+    db.session.add(drink)
+    db.session.commit()
