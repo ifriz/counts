@@ -8,6 +8,7 @@ flask = "*"
 waitress = "*"
 sqlalchemy = "*"
 flask-script = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 pylint = "*"
